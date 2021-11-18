@@ -4,15 +4,20 @@ from utils.load_data_function import get_wavs_and_labels
 
 if __name__=="__main__":
   
-
 #1、获取文件名字和标签
-    data_path  = "../data/thchs_30/data_thchs30/data"
-    dev_path  = "../data/thchs_30/data_thchs30/dev"
-    file_name = "txt_data/thchs_30/test.txt"
-    wav_files, labels = get_wavs_and_labels(data_path,dev_path,file_name)    
-
+    #训练集
+    data_path  = "data/data_thchs30/data"
+    train_path = "data/data_thchs30/train"
+    file_name  = "data_file/thchs_30/train.txt"
+    wav_files, labels = get_wavs_and_labels(data_path,train_path,file_name)    
+    #测试集
+    data_path  = "data/data_thchs30/data"
+    test_path  = "data/data_thchs30/test"
+    file_name  = "data_file/thchs_30/test.txt"
+    wav_files, labels = get_wavs_and_labels(data_path,test_path,file_name)   
+    
 #2、获取字典
-
+    
 
 #3、计算标准化特征
 
