@@ -1,7 +1,7 @@
 # chinese_asr_demo
 一个端到端的中文语音识别系统
 ### 使用模型
-cnn + lstm + fc + ctc
+cnn + lstm  + ctc
 
 ## 1、完成整体框架
 ## 2、模块化，分为预处理，训练，以及测试
