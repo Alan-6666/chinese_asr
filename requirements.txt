@@ -1,6 +1,6 @@
-pytorch
-torchvision
-torchaudio
-numpy
-Levenshtein
-tqdm
+pytorch = 1.7.1
+torchvision = 0.7.0
+torchaudio  = 0.7.2
+numpy = 1.19.5
+Levenshtein = 0.16.0
+tqdm = 4.60.0
