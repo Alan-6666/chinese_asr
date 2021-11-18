@@ -96,13 +96,12 @@ def get_wavs_and_labels(wav_path,train_path,file_name):
         
 #dataset函数获取特征以及label
 class ASR_Dataset(Dataset):
-    def __init__(self, index_path, asr_dict_path,final_mean, final_stdevs):
+    def __init__(self, index_path, asr_dict,final_mean, final_stdevs):
         with open(index_path) as f:
             idx = f.readlines()
         idx = [x.strip().split(",", 1) for x in idx]
         self.idx = idx
-        with open(asr_dict_path) as f:
-            asr_dict = f.readlines()
+
         self.asr_dict = [x.replace("\n","") for x in asr_dict]
 
     def __getitem__(self, index):
