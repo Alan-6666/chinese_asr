@@ -25,5 +25,7 @@ _ 作为ctc的blank
 
 ### 计划
 1、加入CNN降维度
+
 2、更新tranformer，conformer模型
+
 3、更新其他数据集的训练方法
