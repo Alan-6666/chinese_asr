@@ -51,5 +51,3 @@ if __name__=="__main__":
 #    model.load_state_dict(torch.load("{}/{}.pkl".format(save_address, model_name))) 
 #    model = torch.load("{}/{}.pkl".format(save_address , model_name))
 #    test(model, dictionary_path, test_data_path, device)
-
-#5、测试
