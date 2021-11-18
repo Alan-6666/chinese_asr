@@ -41,6 +41,7 @@ class get_features():
         return mat
 
 
+#获得特征归一化的均值和方差
 def stand_para(train_data_path):
     
     mean_list      = [0]*80
@@ -66,21 +67,12 @@ def stand_para(train_data_path):
     print("final_stdevs", final_stdevs)
     return torch.tensor(final_means), torch.tensor(final_stdevs)
 
+#归一化函数
 def standardization(feature,final_mean,final_stdevs):
     out = (feature-final_mean)/final_stdevs
     return out
 
-
-"""
-        mat =  kaldi.fbank(waveform,
-                      num_mel_bins=80,
-                      frame_length=25,
-                      frame_shift=10,
-                      dither=0.1,
-                      energy_floor=0.0,
-"""
-
-#获得地址以及labels
+#获得地址以及标签
 def get_wavs_and_labels(wav_path,train_path,file_name):
     wav_files = []
     labels = []
@@ -126,7 +118,6 @@ class ASR_Dataset(Dataset):
         return len(self.idx)
 
 
-
 def _collate_fn(batch):
    #获取特征的tensor
    batch_size = len(batch)
@@ -142,10 +133,6 @@ def _collate_fn(batch):
    labels   = [x[1] for x in batch]
    labels_length = [len(x) for x in labels]
       
-   #获取数据的最大长度
-   
-   #填充特征
-   
    return features_out,  labels, labels_length
 
 class ASR_DataLoader(DataLoader):
