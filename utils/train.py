@@ -161,44 +161,4 @@ def test(model, dictionary_path, test_path,device):
             wer_sum += wer
             print("wer", wer)
              
-     
-
-if __name__=="__main__":
     
-    dataset = "thchs_30"    
-    dictionary_path = './txt_data/{}/dictionary.txt'.format(dataset) 
-    save_address    = "./model_file/{}".format(dataset)
-    model_name      = "bi_lstm_150_nl"
-    train_data_path = 'txt_data/{}/train.txt'.format(dataset)
-    test_data_path  = "txt_data/{}/test.txt".format(dataset)
-    stand_para_path = save_address + "/stand_nor.txt"
-    epochs    = 150
-    with open(dictionary_path) as f:
-        temp = f.readlines()
- 
-    input_size, hidden_size, num_layers, out_size = 80, 512, 1, len(temp)
-#    model = RNN(input_size  = input_size ,
-#                hidden_size = hidden_size, 
-#                num_layers  = num_layers , 
-#                out_size    = out_size   ,        
-#   )
-    model = bi_lstm(
-                input_size  = input_size ,
-                hidden_size = hidden_size, 
-                num_layers  = num_layers , 
-                out_size    = out_size   ,        
-)
-  
-#    print(model)
-#    torch.cuda.set_device(0)
-    if torch.cuda.is_available():
-         device = torch.device("cuda")
-    model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])
-###################### 训练 #################################################
-    train(model, save_address, model_name, epochs, train_data_path, test_data_path,dictionary_path, stand_para_path,device) 
-
-###################### 测试 #################################################   
-#    model = rnn()
-#    model.load_state_dict(torch.load("{}/{}.pkl".format(save_address, model_name))) 
-#    model = torch.load("{}/{}.pkl".format(save_address , model_name))
-#    test(model, dictionary_path, test_data_path, device)
