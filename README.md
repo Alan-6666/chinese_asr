@@ -3,7 +3,9 @@
 ### 使用模型
 cnn + lstm  + ctc
 
-## 1、完成整体框架
+## 训练过程
+![image](https://user-images.githubusercontent.com/53568883/142418123-b8314cbc-c091-493e-a394-9eb59175c44c.png)
+
 ## 2、模块化，分为预处理，训练，以及测试
 ### 预处理
 提取fbank特征后进行标准化
