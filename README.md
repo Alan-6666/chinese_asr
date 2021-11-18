@@ -3,7 +3,10 @@
 ### 使用模型
 cnn + lstm  + ctc
 
-## 训练过程
+## 生成文件格式
+![image](https://user-images.githubusercontent.com/53568883/142418456-e4bbe470-43e0-44ab-8e7c-9936e9e81f7f.png)
+
+## 字典
 ![image](https://user-images.githubusercontent.com/53568883/142418123-b8314cbc-c091-493e-a394-9eb59175c44c.png)
 
 ## 2、模块化，分为预处理，训练，以及测试
