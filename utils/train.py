@@ -1,12 +1,11 @@
-import data
 import torch
 import numpy as np
 from tqdm import tqdm
 import torch.nn as nn
 import os
-from model import *
-from data import ASR_Dataset, ASR_DataLoader,stand_para, read_stand_para
-from ctc_decoder import remove_blank, greedy_decode, beam_decode, compute_wer
+from model.model import *
+from load_data_function import ASR_Dataset, ASR_DataLoader,stand_para, read_stand_para
+from ctc_decode import remove_blank, greedy_decode, beam_decode, compute_wer
 
 
 def train(model,save_address,model_name, epochs, data_path,test_path , dictionary_path,stand_para_path,device):
