@@ -2,10 +2,8 @@ import torch
 import torchaudio
 import torchaudio.compliance.kaldi as kaldi
 import os
-import wave
 import numpy as np
 from tqdm import tqdm
-import scipy
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 
