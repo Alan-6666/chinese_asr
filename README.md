@@ -2,7 +2,8 @@
 一个端到端的中文语音识别模型训练、测试框架
 具备数据预处理、模型训练、解码、计算wer等等功能
 ### 训练数据
-训练数据采用thchs_30，下载地址：http://www.openslr.org/18/，下载后将data_thchs_30解压到data文件中
+训练数据采用thchs_30，下载地址：http://www.openslr.org/18/
+下载后将data_thchs_30解压到data文件中
 ### 使用模型
 bi-lstm  + ctc
 可直接将语音转换为中文
