@@ -8,23 +8,22 @@ from load_data_function import ASR_Dataset, ASR_DataLoader,stand_para, read_stan
 from ctc_decode import remove_blank, greedy_decode, beam_decode, compute_wer
 
 
-def train(model,save_address,model_name, epochs, data_path,test_path , dictionary_path,stand_para_path,device):
+def train(model,save_address,model_name, epochs, data_path,test_path , dictionary,stand_para_path,device):
      
     print(model)
     model.to(device)
     model.train()
 
-#    final_mean, final_stdevs = stand_para(data_path)
     final_mean, final_stdevs = read_stand_para(stand_para_path)   
     #读取训练数据
-    train_dataset = ASR_Dataset(data_path, dictionary_path, final_mean, final_stdevs) #输出，特征地址以及文字标签
+    train_dataset = ASR_Dataset(data_path, dictionary, final_mean, final_stdevs) #输出，特征地址以及文字标签
     batch_size = 64
     train_dataloader = ASR_DataLoader(train_dataset,batch_size=batch_size, num_workers=8,shuffle=True)
     train_data_number = len(train_dataloader.dataset)
 
     #读取测试数据
 
-    test_dataset = ASR_Dataset(test_path, dictionary_path, final_mean, final_stdevs) #输出，特征地址以及文字标签
+    test_dataset = ASR_Dataset(test_path, dictionary, final_mean, final_stdevs) #输出，特征地址以及文字标签
     test_dataloader = ASR_DataLoader(test_dataset,batch_size=batch_size, num_workers=8,shuffle=True)
     test_data_number = len(test_dataloader.dataset)
 
@@ -35,8 +34,6 @@ def train(model,save_address,model_name, epochs, data_path,test_path , dictionar
         weight_decay = 0
     )
     #读取字典    
-    with open(dictionary_path) as f:
-        dictionary = f.readlines()
     dictionary = [x.strip() for x in dictionary]
     #损失函数
     criterion = nn.CTCLoss(blank=0, reduction="mean")
@@ -136,12 +133,10 @@ def train(model,save_address,model_name, epochs, data_path,test_path , dictionar
     #保存
     torch.save(model.state_dict(),"{}/{}.pkl".format(save_address, model_name))
 
-def test(model, dictionary_path, test_path,device):
+def test(model, dictionary, test_path,device):
     model.to(device)
     model.eval()
-    h_state = None
-    with open(dictionary_path) as f:
-        dictionary = f.readlines()
+
     dictionary = [x.strip() for x in dictionary]
     with open(test_path) as f:
         real_labels = f.readlines()
