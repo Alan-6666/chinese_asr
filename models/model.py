@@ -73,11 +73,16 @@ class bi_lstm_2(nn.Module):
                            batch_first   = True,
                            bidirectional = True,
 )       
-        self.conv1 = nn.Conv2D(3,3)
+        self.conv1 = nn.Conv1d(in_channels= 80,out_channels = 40, kernel_size = 1) #80维度降低为40维
+
         self.fc1   = nn.Linear(hidden_size*2, 1024)
         self.fc2   = nn.Linear(1024, out_size)
          
     def forward(self,x):
+        out = out.permute(0, 2, 1) #转置 N,80,T
+        out = self.conv1(out)
+        out = out.permute(0, 2, 1) #转置 N,T,40
+
         out,_   = self.lstm(x)         
         out    = self.fc1(out)
         out    = self.fc2(out)
