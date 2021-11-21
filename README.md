@@ -30,11 +30,12 @@
 - 标准化：计算特征的均值和方差进行标准化，加快模型收敛速度，因为计算标准化的速度较慢，已将参数放到data_file/thchs_30/stand_nor.txt文件中，可直接调用
 ### 解码
 - 采用greedy search
-训练数据采用thchs_30，下载地址：http://www.openslr.org/18/
+
 下载后将data_thchs30解压到data文件中
 
 环境依赖以及使用
 ------
+- 下载thch_30数据集后放到data
 
 模型下载
 ------
@@ -44,7 +45,7 @@
 
 数据集下载
 -----
-
+下载地址：http://www.openslr.org/18/
 
 ### 计划
 1、加入CNN降维度
