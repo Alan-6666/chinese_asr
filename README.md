@@ -9,12 +9,12 @@
 * [项目背景](#项目背景)
 * [功能特性](#功能特性)
     * [预处理](#预处理)
-    * [模型训练](#模型训练)
     * [解码](#解码)
     * [计算wer](#计算wer)
 * [环境依赖以及使用](#环境依赖以及使用)
 * [模型下载](#模型下载)
 * [数据集下载](#数据集下载)
+* [计划](#计划)
 
 
 项目背景
@@ -26,9 +26,10 @@
 本asr框架功能包括数据预处理、模型训练、解码、计算wer
 
 ### 预处理
-### 模型训练
+- 提取80维fbank特征
+- 标准化：计算特征的均值和方差进行标准化，加快模型收敛速度，因为计算标准化的速度较慢，已将参数放到data_file/thchs_30/stand_nor.txt文件中，可直接调用
 ### 解码
-### 计算wer
+- 采用greedy search
 训练数据采用thchs_30，下载地址：http://www.openslr.org/18/
 下载后将data_thchs30解压到data文件中
 
@@ -39,23 +40,10 @@
 ------
 |模型|数据集|训练wer|测试wer|链接|备注|
 |----|----|----|----|----|----|
-|bi_lstm_150_nl|thchs_30|12%|29.278%|https://pan.baidu.com/s/1VVavLKLeY584HudHtC5uIQ 提取码：n18y|
+|bi_lstm_150_nl|thchs_30|12%|29.278%|https://pan.baidu.com/s/1VVavLKLeY584HudHtC5uIQ 提取码：n18y|一层双向LSTM+ctc|
 
 数据集下载
 -----
-
-## 生成训练文件格式
-![image](https://user-images.githubusercontent.com/53568883/142419223-2640cd2c-8479-4a92-b977-798eb5136298.png)
-
-## 字典
-_ 作为ctc的blank
-
-![image](https://user-images.githubusercontent.com/53568883/142418123-b8314cbc-c091-493e-a394-9eb59175c44c.png)
-
-### 预处理
-1、提取80维fbank特征
-
-2、标准化：计算特征的均值和方差进行标准化，加快模型收敛速度，因为计算标准化的速度较慢，已将参数放到data_file/thchs_30/stand_nor.txt文件中，可直接调用
 
 
 ### 计划
