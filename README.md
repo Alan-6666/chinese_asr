@@ -31,12 +31,10 @@
 ### 解码
 - 采用greedy search
 
-下载后将data_thchs30解压到data文件中
-
 环境依赖以及使用
 ------
 - 下载thch_30数据集后放到data
-
+- 根据requeiment
 模型下载
 ------
 |模型|数据集|训练wer|测试wer|链接|备注|
@@ -48,10 +46,7 @@
 下载地址：http://www.openslr.org/18/
 
 ### 计划
-1、加入CNN降维度
 
-2、更新tranformer，conformer模型
-
-3、更新其他数据集的训练方法
-
-4、更新其他解码方法
+- 更新tranformer，conformer模型
+- 更新其他数据集的训练方法
+- 更新其他解码方法
