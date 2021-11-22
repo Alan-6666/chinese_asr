@@ -34,7 +34,7 @@
 环境依赖以及使用
 ------
 - 下载thch_30数据集后放到data
-- 根据requeiment
+- 根据requirement
 模型下载
 ------
 |模型|数据集|训练wer|测试wer|链接|备注|
