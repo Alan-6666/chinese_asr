@@ -43,7 +43,7 @@
 ------
 |模型|数据集|训练wer|测试wer|链接|备注|
 |----|----|----|----|----|----|
-|bi_lstm_150_nl|thchs_30|12%|29.278%|https://pan.baidu.com/s/1VVavLKLeY584HudHtC5uIQ 提取码：n18y|一层双向LSTM+ctc|
+|bi_lstm_150_c2|thchs_30|6.7%|18.66%|https://pan.baidu.com/s/1VVavLKLeY584HudHtC5uIQ 提取码：n18y|2层bi-lstm+ctc|
 
 数据集下载
 -----
