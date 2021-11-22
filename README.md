@@ -28,6 +28,9 @@
 ### 预处理
 - 提取80维fbank特征
 - 标准化：计算特征的均值和方差进行标准化，加快模型收敛速度，因为计算标准化的速度较慢，已将参数放到data_file/thchs_30/stand_nor.txt文件中，可直接调用
+
+### ctc-loss
+- 一段音频，提取到的特征的数量是大于label中词的数量的，这是一个多对少的问题，而ctc-loss通过加入blank，能够解决时序类数据分类时的对齐问题
 ### 解码
 - 采用greedy search
 
@@ -44,7 +47,7 @@
 
 数据集下载
 -----
-下载地址：http://www.openslr.org/18/
+thchs_30 下载地址：http://www.openslr.org/18/
 
 ### 计划
 
