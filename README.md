@@ -41,7 +41,7 @@
 
 模型下载
 ------
-|模型|数据集|训练wer|测试wer|链接|备注|
+|模型|数据集|训练wer|验证wer|链接|备注|
 |----|----|----|----|----|----|
 |bi_lstm_150_c2|thchs_30|6.7%|18.66%|https://pan.baidu.com/s/1VVavLKLeY584HudHtC5uIQ 提取码：n18y|2层bi-lstm+ctc|
 
