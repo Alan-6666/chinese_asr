@@ -38,6 +38,10 @@
 ------
 - 下载thch_30数据集后放到data
 - 根据requirement安装依赖安装包
+- 在linux系统下输入以下代码，进行训练
+- python --pattern train --decode greedy
+- 在linux系统下输入以下代码，进行测试
+- python --pattern test --decode greedy
 
 模型下载
 ------
